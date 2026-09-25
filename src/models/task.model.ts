@@ -55,7 +55,7 @@ export const TaskModel = {
     if (updates.length === 0) return this.findById(id);
 
     values.push(id);
-    await db.run(\`UPDATE tasks SET \${updates.join(', ')} WHERE id = ?\`, values);
+    await db.run(`UPDATE tasks SET ${updates.join(', ')} WHERE id = ?`, values);
     return this.findById(id);
   },
 

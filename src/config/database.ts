@@ -10,6 +10,7 @@ export async function getDb() {
       filename: path.join(__dirname, '../../database.sqlite'),
       driver: sqlite3.Database
     });
+    await dbInstance.exec('PRAGMA foreign_keys = ON;');
   }
   return dbInstance;
 }
